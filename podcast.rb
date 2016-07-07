@@ -20,8 +20,11 @@ mp3_name = a[0][1].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '') + '.mp3'
 # download = open(mp3)
 # IO.copy_stream(download, "/Users/Mark/Desktop/#{mp3_name}")
 
-File.open('~/Sites/church/scripts/mp3.txt','w') do |s|
-  s.puts mp3_name
+
+
+File.open('/Users/Mark/Sites/church/scripts/mp3.txt', 'a+') do |file|
+  file.write(mp3_name)
+  file.write "\n"
 end
 # Mp3Info.open("/Users/Mark/Desktop/#{mp3_name}") do |mp3info|
 #   puts mp3info
