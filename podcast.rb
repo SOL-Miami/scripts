@@ -17,14 +17,15 @@ end.compact
 a = chld_name.last
 mp3 = a[2][1]
 mp3_name = a[0][1].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '') + '.mp3'
-require 'debug'
-download = open(mp3)
-IO.copy_stream(download, "/Users/Mark/Desktop/#{mp3_name}")
+# download = open(mp3)
+# IO.copy_stream(download, "/Users/Mark/Desktop/#{mp3_name}")
 
-Mp3Info.open("/Users/Mark/Desktop/#{mp3_name}") do |mp3info|
-  require 'debug'
-  puts mp3info
+File.open('~/Sites/church/scripts/mp3.txt','w') do |s|
+  s.puts mp3_name
 end
+# Mp3Info.open("/Users/Mark/Desktop/#{mp3_name}") do |mp3info|
+#   puts mp3info
+# end
 
 # title = doc.xpath("//item//title")
 # link = doc.xpath("//item//link")
@@ -43,5 +44,5 @@ end
 # itunes_keywords = doc.xpath("//item//keywords")
 
 
-puts doc
+# puts doc
 # .inner_text
