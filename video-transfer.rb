@@ -4,14 +4,17 @@
 require 'rubygems'
 require 'awesome_print'
 require 'handbrake'
-
-# require 'debug'
-
 # Input
-video = HandBrake::CLI.new.input('/Users/Mark/Desktop/testing-video/video.mp4')
-
+# video = HandBrake::CLI.new.input('/Users/Mark/Desktop/testing-video/video.mp4')
+videos = []
+folder = File.open(' ')
+videos.each do |video|
+  # require 'debug'
+  # video = HandBrake::CLI.new.input('/Users/Mark/Desktop/testing-video/video.mp4')
+end
+# video = HandBrake::CLI.new.input('/Users/Mark/OneDriveBusiness/Playa/Images/1.mp4')
 # For iPhone
-video.preset('iPhone & iPod Touch').output('/Users/Mark/Desktop/project-phone.m4v')
+# video.preset('iPhone & iPod Touch').output('/Users/Mark/Desktop/project-phone.m4v')
 
 # TV
-# video.preset('High Profile').output('project-tv.mp4')
+video.preset('High Profile').output('project-tv.mp4')

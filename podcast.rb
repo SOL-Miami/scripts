@@ -12,23 +12,20 @@ chld_name = block.map do |node|
   # enclosure_url = node.css("enclosure @url")
   # enclosure_length = node.css("enclosure @length")
   # enclosure_type = node.css("enclosure @type")
-end.compact
+end
 
 a = chld_name.last
 mp3 = a[2][1]
 mp3_name = a[0][1].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '') + '.mp3'
 # download = open(mp3)
-# IO.copy_stream(download, "/Users/Mark/Desktop/#{mp3_name}")
-
-
-
-File.open('/Users/Mark/Sites/church/scripts/mp3.txt', 'a+') do |file|
-  file.write(mp3_name)
-  file.write "\n"
+# IO.copy_stream(download, "/Users/Mark/Sites/church/scripts/#{mp3_name}")
+require 'debug'
+Mp3Info.open("/Users/Mark/Sites/church/scripts/#{mp3_name}") do |mp3info|
+  File.open('/Users/Mark/Sites/church/scripts/mp3.txt', 'a+') do |file|
+    file.write(mp3info)
+    file.write "\n"
+  end
 end
-# Mp3Info.open("/Users/Mark/Desktop/#{mp3_name}") do |mp3info|
-#   puts mp3info
-# end
 
 # title = doc.xpath("//item//title")
 # link = doc.xpath("//item//link")
